@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CdComponent } from './cd/cd.component';
+import { LstCDsComponent } from './lst-cds/lst-cds.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CdComponent
+    CdComponent,
+    LstCDsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
