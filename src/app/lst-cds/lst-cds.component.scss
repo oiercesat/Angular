@@ -1,0 +1,19 @@
+.lst-cd {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .lst-cd {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
+
+@media screen and (max-width: 480px) {
+    .lst-cd {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
