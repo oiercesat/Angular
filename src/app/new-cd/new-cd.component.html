@@ -1,0 +1,45 @@
+<h1>Eh mon gâté, parle plus fort pour renseigner le cd du J</h1>
+<div class="formulaire">
+    <section class="sousForm saisieForm">
+        <h2>Dis mois tout mon gâté</h2>
+        <form [formGroup]="formulaire">
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" class="form-control" id="title" formControlName="title">
+            </div>
+            <div class="form-group">
+                <label for="author">Artiste</label>
+                <input type="text" class="form-control" id="author" formControlName="author">
+            </div>
+            <div class="form-group">
+                <label for="dateDeSortie">Date de sortie</label>
+                <input type="number" class="form-control" id="dateDeSortie" formControlName="dateDeSortie">
+            </div>
+            <div class="form-group">
+                <label for="quantite">Quantite</label>
+                <input type="text" class="form-control" id="quantite" formControlName="quantite">
+            </div>
+            <div class="form-group">
+                <label for="price">Prix</label>
+                <input type="number" class="form-control" id="price" formControlName="price">
+            </div>
+            <div class="form-group">
+                <label for="thumbnail">Image</label>
+                <input type="text" class="form-control" id="thumbnail" formControlName="thumbnail">
+            </div>
+            <button type="submit" class="button" (click)="addCd()">Présente-le au vélodrome</button>
+        </form>
+    </section>
+    <div class="cd-card">
+        <section  *ngIf="currentCd$ | async as unCd">
+            <h3>{{unCd.title|uppercase}}</h3>
+            <p>Sortie le : {{unCd.dateDeSortie|date:'dd/MM/yyyy'}}</p>
+            <p>Auteur : {{unCd.author}}</p>
+            <p>Prix : {{unCd.price|currency:'EUR'}}</p>
+            <p>En stock : <span [ngStyle]="{color:'rgb(0,'+unCd.quantite+',0)'}">{{unCd.quantite}}</span> </p>
+            <img [src]="unCd.thumbnail" [alt]="unCd.title">
+        </section>
+    </div>
+    
+    <!-- <app-cd [cd]="currentCd$ | async as cd"></app-cd> -->
+</div>

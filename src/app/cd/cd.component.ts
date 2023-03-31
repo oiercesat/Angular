@@ -19,7 +19,7 @@ export class CdComponent implements OnInit {
     if (idCd === undefined) {
       this.unCd = this.cd;
     } else {
-      this.unCd = this.cdsService.getCdById(+idCd);
+      this.cdsService.getCdById(+idCd).subscribe(cd => this.unCd = cd);
     }
   }
 

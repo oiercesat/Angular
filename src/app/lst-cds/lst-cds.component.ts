@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CD } from 'src/Modele/cd';
 import { CdsService } from '../services/cds.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lst-cds',
@@ -8,10 +9,10 @@ import { CdsService } from '../services/cds.service';
   styleUrls: ['./lst-cds.component.scss']
 })
 export class LstCDsComponent implements OnInit {
-  lstCd!: CD[];
+  lstCd!: Observable<CD[]>;
 
   constructor(private cdsService: CdsService) { }
   ngOnInit(): void {
-    this.lstCd = this.cdsService.getAllCDs(); 
+    this.lstCd = this.cdsService.getAllCDs();
   }
 }
